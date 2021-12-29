@@ -5,7 +5,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object RetrofitClient {
 
-    private val AUTH = "Basic"+ android.util.Base64.encodeToString("123456".toByteArray(), android.util.Base64.NO_WRAP)
+
 
     private const val BASE_URL = "https://reqres.in"
 
@@ -13,7 +13,7 @@ object RetrofitClient {
         .addInterceptor{ chain ->
             val original = chain.request()
             val requestBuilder = original.newBuilder()
-                .addHeader("Authorization", AUTH)
+
                 .method(original.method(), original.body())
 
             val request = requestBuilder.build()
